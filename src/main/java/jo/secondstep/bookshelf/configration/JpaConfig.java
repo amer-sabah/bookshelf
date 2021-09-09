@@ -1,4 +1,4 @@
-package jo.secondstep.configration;
+package jo.secondstep.bookshelf.configration;
  
 import javax.persistence.EntityManagerFactory;
  
@@ -10,7 +10,7 @@ import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
  
 @Configuration
-@EnableJpaRepositories(basePackages = {"jo.secondstep.bookshelf"})
+@EnableJpaRepositories(basePackages = {"jo.secondstep.bookshelf.repositories"})
 @EnableTransactionManagement
 public class JpaConfig {
     @Bean
