@@ -1,4 +1,4 @@
-package jo.secondstep.configration;
+package jo.secondstep.bookshelf.configration;
  
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

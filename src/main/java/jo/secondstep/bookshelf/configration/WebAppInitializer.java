@@ -1,4 +1,4 @@
-package jo.secondstep.configration;
+package jo.secondstep.bookshelf.configration;
  
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
