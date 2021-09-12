@@ -1,4 +1,4 @@
-package jo.secondstep.bookshelf.entity;
+package jo.secondstep.bookshelf.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
