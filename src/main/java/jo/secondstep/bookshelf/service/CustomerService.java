@@ -5,8 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import jo.secondstep.bookshelf.entity.Customer;
-import jo.secondstep.bookshelf.repository.CustomerRepository;
+import jo.secondstep.bookshelf.entities.Customer;
+import jo.secondstep.bookshelf.repositories.CustomerRepository;
 
 @Service
 @Transactional
