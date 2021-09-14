@@ -1,4 +1,4 @@
-package jo.secondstep.bookshelf.controller;
+package jo.secondstep.bookshelf.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +17,9 @@ public class BookController {
 
 	@RequestMapping(value = "/")
 	public String home(ModelMap map) {
-		map.addAttribute("books", booksRepository.findById(12));
 
-		return "index";
+		map.addAttribute("books", booksRepository.findAll());
+		return "books";
 	}
 
 	@GetMapping(path = "/search")

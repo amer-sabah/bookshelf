@@ -8,10 +8,6 @@
 <title>Home Page</title>
 </head>
 <body>
-<h1>Bookshelf</h1>
-
-<h3>${books}</h3>
-
 
 </body>
 </html>

@@ -29,7 +29,7 @@
 	}
 </script>
 
-<title>Bookshelf - Search results</title>
+<title>Bookshelf - Books</title>
 </head>
 <body>
 
@@ -51,7 +51,6 @@
 							<h4 class="card-title">${book.getName() }</h4>
 							<h6 class="card-subtitle mb-2 text-muted">${book.getCategory().getName() }</h6>
 							<p class="card-text">By ${book.getAuthor() }</p>
-
 							<div class="align-self-start mt-auto">
 								<h5 class="card-title">$ ${book.getPrice() }</h5>
 								<a href="#" class="btn btn-primary  ">Borrow</a> <a href="#"
