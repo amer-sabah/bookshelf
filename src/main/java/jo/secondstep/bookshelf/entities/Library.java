@@ -1,7 +1,6 @@
 package jo.secondstep.bookshelf.entities;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,19 +17,20 @@ public class Library {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer library_id;
-
+	
 	@Column(name="library_name",nullable = false)
 	String library_name;
-
+	
 	@Column(name="location")
 	String location;
-
+	
 	@Column(name="description")
 	String description;
-
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="owner_id")
 	Person owner;
+
 
 	public Integer getLibrary_id() {
 		return library_id;
@@ -72,10 +72,10 @@ public class Library {
 		this.owner = owner;
 	}
 
+	
 
-
-
-
-
-
+	
+	
+	
+	
 }

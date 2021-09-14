@@ -14,12 +14,13 @@ public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer user_id;
-
+	
 	@Column(name = "username",nullable = false)
 	String username;
-
+	
 	@Column(name = "password",nullable = false)
 	String password;
+	
 
 	public Integer getUser_id() {
 		return user_id;
@@ -44,9 +45,9 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 
-
-
-
-
+	
+	
 }
