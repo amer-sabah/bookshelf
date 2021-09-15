@@ -2,7 +2,6 @@ package jo.secondstep.bookshelf.repositories;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
