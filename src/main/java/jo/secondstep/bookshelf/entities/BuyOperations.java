@@ -85,4 +85,8 @@ public class BuyOperations {
 	this.buy_date = buy_date;
 	this.booksLibrary = booksLibrary;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 608d5a1111c7434030bc1c867f71a7fb293be8f7

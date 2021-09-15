@@ -5,7 +5,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html SYSTEM "about:legacy-compat">
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -42,21 +43,21 @@ body {
 	border: 0;
 	position: absolute;
 	transition: .5s ease;
-	top: 85%;
+	top: 90%;
 	left: 90%;
 }
 
-table {
+table, .book {
 	border-spacing: 0;
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-tr {
+tr, .book {
 	position: relative;
 	display: block;
-	padding: 10px 20px;
+	padding: 12px 25px;
 	margin-bottom: 10px;
 	background-color: #fff;
 	border: 1px solid rgba(0, 0, 0, .125);
@@ -66,7 +67,7 @@ tr {
 	border-bottom-right-radius: .25rem;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even), .book {
 	background-color: #f2f2f2
 }
 </style>
@@ -84,41 +85,49 @@ tr:nth-child(even) {
 		</thead>
 		<tbody>
 			<tr>
-				<td text-align="center"><b>Library Name :</b>&nbsp;&nbsp;${buy.library.getLibrary_name()}&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><b>Library Name :</b>&nbsp;&nbsp;${buy.library.getLibrary_name()}&nbsp;&nbsp;</td>
 			<tr>
-				<td text-align="center"><b>Library Location :</b>&nbsp;&nbsp;${buy.library.getLocation()}&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><b>Library Location :</b>&nbsp;&nbsp;${buy.library.getLocation()}&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
-			<tr>
-				<td text-align="center"><b>Book Name :</b>&nbsp;&nbsp;
-					${buy.book.getName()}&nbsp;&nbsp;</td>
-
-				<td text-align="center"><b> Auther :</b>&nbsp;&nbsp;
-					${buy.book.getAuthor()}&nbsp;&nbsp;</td>
-				<td text-align="center"><b>Category :</b>&nbsp;&nbsp;
-					${buy.book.category.getName()}&nbsp;&nbsp;</td>
-
-				<td text-align="center"><b>Price :</b>&nbsp;&nbsp;
-					${buy.book.getPrice()}&nbsp;&nbsp;</td>
-
-				<td text-align="center"><b>Description :</b>&nbsp;&nbsp;
-					${buy.book.getDescription()}&nbsp;&nbsp;</td>
-			</tr>
-
 			</tr>
 
 		</tbody>
 	</table>
+
+
+	<div class="book">
+
+		<h4 style="text-align: center; font-weight: bold;">${buy.book.getName()}</h4>
+		<br>
+
+		<h6 style="text-align: center;">${buy.book.getDescription()}</h6>
+		<h5 style="text-align: center; font-weight: bold; display: inline">Author
+			:</h5>
+		<p style="display: inline">${buy.book.getAuthor()}</p>
+
+		<br />
+
+		<h5 style="text-align: center; font-weight: bold; display: inline">Category
+			:</h5>
+		<p style="display: inline">${buy.book.category.getName()}</p>
+		<br /> <br />
+		<h5 style="text-align: center; font-weight: bold;">Price
+			${buy.book.getPrice()}</h5>
+
+		<br />
+
+	</div>
 	<form action="Add">
 		<input type="hidden" id="person_id" name="person_id"
 			value='${param.person_id}'> <input type="hidden" id="book_id"
 			name="book_id" value='${param.book_id}'>
-			
+
 		<button class="but" type='submit' onclick="buy()">Buy</button>
 	</form>
 	<script>
 		function buy() {
-		
+
 			alert("Book purchased successfully ..! ");
 		}
 	</script>
