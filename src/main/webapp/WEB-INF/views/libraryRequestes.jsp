@@ -21,9 +21,10 @@
 </script>
 </head>
 <body>
-   <h1>Requestes : </h1>
+   <div style="margin: auto; margin-right: auto; margin-top:5% ; width:70%" >
+      <h1>Requestes : </h1>
    
-   <table class="table table-striped" >
+      <table class="table table-striped"  >
       <tr class="table-striped" >
         <th>ID</th>
         <th>Name</th>
@@ -47,7 +48,9 @@
            </td>
         </tr>
       </c:forEach>
-   </table>
+     </table>
+   
+   </div>
    
 </body>
 </html>

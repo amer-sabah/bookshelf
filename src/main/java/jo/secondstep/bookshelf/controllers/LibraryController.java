@@ -59,7 +59,7 @@ public class LibraryController {
 	}
 	
 	@RequestMapping(path = "requestes/accept")
-	public String accept(@RequestParam(name = "id") int id) {
+	public String accept(Model model,@RequestParam(name = "id") int id) {
 		
 		Library library= libraryRepository.findLibraryById(id);
 		Person owner =personRepository.findPersonById(library.getOwner().getPerson_id());
@@ -81,12 +81,13 @@ public class LibraryController {
 		library.setStatus("accepted");
 		libraryRepository.save(library);
 		
-		return getLibrariesRequestes(new ModelMap());
+		model.addAttribute("libraries",libraryRepository.findLibraryByStatus("pending"));
+		return "libraryRequestes";
 	}
 	
 	
 	@RequestMapping(path = "requestes/reject")
-	public String reject(@RequestParam(name = "id") int id) {
+	public String reject(Model model,@RequestParam(name = "id") int id) {
 		
 		Library library= libraryRepository.findLibraryById(id);
 		Person owner =personRepository.findPersonById(library.getOwner().getPerson_id());
@@ -94,6 +95,7 @@ public class LibraryController {
 		owner.setUser(null);
 		personRepository.delete(owner);
 		
-		return getLibrariesRequestes(new ModelMap());
+		model.addAttribute("libraries",libraryRepository.findLibraryByStatus("pending"));
+		return "libraryRequestes";
 	}
 }

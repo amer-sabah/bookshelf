@@ -20,8 +20,4 @@ public class PersonService {
 		return personRepository.findById(person_id).orElse(null);
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 608d5a1111c7434030bc1c867f71a7fb293be8f7
