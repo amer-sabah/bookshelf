@@ -1,4 +1,4 @@
-package jo.secondstep.bookshelf.controller;
+package jo.secondstep.bookshelf.controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
