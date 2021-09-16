@@ -20,10 +20,10 @@
 		<h2>Library: ${library}</h2>
 
 
-		<form action="successfully increased">
+		<form action="successfully increased" onsubmit="return submitForm(this)">
 			
 
-			<select name="book" class="form-select form-select-sm"  style="width : 30%; margin : 30px"
+			<select id="selectBook" name="book" class="form-select form-select-sm"  style="width : 30%; margin : 30px"
 				aria-label="Default select example">
 				<option value="-1" selected="selected">Select Book</option>
 				<c:forEach var="book" items="${books}">
@@ -37,10 +37,35 @@
 
 
 			</select>
-			<label class="form-label">Quantity:</label> <input type="text" name="quantity"  class="form-control" style="width : 30%;">
+			<label class="form-label">Quantity:</label> <input id="quantityInput" type="text" name="quantity"  class="form-control" style="width : 30%;">
 			<input type="submit" value="Submit" class="btn btn-primary" style=" margin-top : 30px">
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+	
+		function submitForm(formObject) {
+			
+			var input = document.getElementById('quantityInput');
+			
+			if(formObject['selectBook'].value == -1){
+				
+				console.log('please, Choose a Book');
+				alert('please, Choose a Book');
+				return false;
+				
+			}
+			
+			if(input.value.length == 0){
+				console.log('please, Enter Quantitya');
+				alert('please, Enter Quantity');
+				return false;
+			}
+			console.log(input.value);
+			
+		}
+	
+	</script>
 
 </body>
 </html>
