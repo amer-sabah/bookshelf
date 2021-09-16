@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import jo.secondstep.bookshelf.entities.Book;
 import jo.secondstep.bookshelf.entities.BooksLibrary;
 import jo.secondstep.bookshelf.entities.Library;
 import jo.secondstep.bookshelf.repositories.BooksLibraryRepository;
@@ -68,7 +69,7 @@ public class BookController {
 		
 	
 	@RequestMapping("/successfully increased")
-	public ModelAndView a(@RequestParam("book") int book,  @RequestParam("quantity") int quantity) {
+	public ModelAndView success(@RequestParam("book") int book,  @RequestParam("quantity") int quantity) {
 		BooksLibrary selectedBook = booksLibraryRepository.findById(book).get();
 		ModelAndView model = new ModelAndView("successfully increased");
 		model.addObject("quantityBefore", selectedBook.getQuantity());
@@ -93,5 +94,7 @@ public class BookController {
 		
 		return model;	
 	}
+	
+	
 
 }
