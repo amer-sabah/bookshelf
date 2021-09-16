@@ -121,6 +121,27 @@
 						<br>
 					</div>
 				</div>
+				
+				<!-- ***************************************************************** -->
+		<div class="col-md-3" style="margin: 30px">
+					<br>
+					<div class="card"
+						style="height: 200px; width: 300px; background-color: #F8F8FF;">
+						<div class="card-body">
+							<h5 class="card-title text-center">Borrow Operation Page</h5>
+							<hr>
+
+						</div>
+						<div class="col text-center">
+<!-- 							<a href="increaseQuantity?id=${library.getLibrary_id()}"
+								class="btn btn-outline-primary me-2"> Select</a>
+								 -->
+								 <a href="http://localhost:8080/Bookshelf/borrowoperations/request"
+								 class="btn btn-outline-primary me-2"> Go to Page</a>
+						</div>
+						<br>
+					</div>
+				</div>
 		</div>
 		
 	</div>

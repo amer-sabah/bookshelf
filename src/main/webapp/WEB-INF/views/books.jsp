@@ -28,6 +28,10 @@
 		window.location.href = "http://localhost:8080/Bookshelf/book/search?library="
 				+ ${library_id}	+"&name=" + text;
 	}
+	
+	function borrow(id){
+		window.location.href = "http://localhost:8080/Bookshelf/borrowoperations?id="+id;
+	}
 </script>
 
 <title>${library_name}-Books</title>
@@ -72,7 +76,7 @@
 								<h5 class="card-title" style="color:#dc3545">$ ${book.getPrice() }</h5>
 								<c:choose>
 		 							<c:when test="${bookInLibrary.getStatus()== 'borrow'}">
-										<a href="#" class="btn btn-primary  ">Borrow</a>
+										<a href="#" class="btn btn-primary  " onclick="borrow(${bookInLibrary.id})">Borrow</a>
 									</c:when>
 									<c:otherwise>
 										<a href="#" class="btn btn-warning ">Buy</a>
