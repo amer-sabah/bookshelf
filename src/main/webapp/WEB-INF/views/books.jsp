@@ -38,8 +38,8 @@
 
 	<div class="container">
 		<div class="row ">
-			<div class="col-4">
-				<h3 class="display-6" style="margin: 16px">${library_name}</h3>
+			<div class="col-4" style="margin-top:16px;margin-bottom:16px">
+				<a style="text-decoration: none;color:black" href="http://localhost:8080/Bookshelf/book/library?id=${library_id}" class="display-6" >${library_name}</a>
 			</div>
 			<div class="col-8">
 				<div class="input-group mb-3 w-75 p-3">

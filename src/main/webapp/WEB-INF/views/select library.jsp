@@ -33,7 +33,7 @@
 <!-- 							<a href="increaseQuantity?id=${library.getLibrary_id()}"
 								class="btn btn-outline-primary me-2"> Select</a>
 								 -->
-								 <a href="library?id=${library.getLibrary_id()}"
+								 <a href="http://localhost:8080/Bookshelf/book/library?id=${library.getLibrary_id()}"
 								 class="btn btn-outline-primary me-2"> Visit library</a>
 						</div>
 						<br>
