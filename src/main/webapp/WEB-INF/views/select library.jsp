@@ -30,8 +30,11 @@
 
 						</div>
 						<div class="col text-center">
-							<a href="increaseQuantity?id=${library.getLibrary_id()}"
+<!-- 							<a href="increaseQuantity?id=${library.getLibrary_id()}"
 								class="btn btn-outline-primary me-2"> Select</a>
+								 -->
+								 <a href="library?id=${library.getLibrary_id()}"
+								 class="btn btn-outline-primary me-2"> Visit library</a>
 						</div>
 						<br>
 					</div>

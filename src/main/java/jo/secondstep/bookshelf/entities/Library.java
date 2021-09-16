@@ -27,6 +27,9 @@ public class Library {
 	@Column(name="description")
 	String description;
 	
+	@Column(name="status")
+	String status;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="owner_id")
 	Person owner;
@@ -62,6 +65,14 @@ public class Library {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Person getOwner() {

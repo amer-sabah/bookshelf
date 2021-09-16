@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jo.secondstep.bookshelf.entities.Library;
 import jo.secondstep.bookshelf.entities.Permission;
@@ -32,13 +33,36 @@ public class LibraryController {
 	PermissionRepository permissionRepository;
 	
 	@GetMapping("/")
-	public String getLibraries(ModelMap model) {
-		model.addAttribute("libraries",libraryRepository.findAll());
-		return "library";
+	public String home(ModelMap model) {
+		return "addLibrary";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	
+	@GetMapping("/requestes")
+	public String getLibrariesRequestes(ModelMap model) {
+		model.addAttribute("libraries",libraryRepository.findLibraryByStatus("pending"));
+		return "libraryRequestes";
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.POST )
 	public String submit(Model model, @ModelAttribute("library") Library library,@ModelAttribute("owner") Person owner) {
+
+		owner.setUser(null);
+		personRepository.save(owner);
+		
+		library.setOwner(owner);
+		library.setStatus("pending");
+		libraryRepository.save(library);
+		
+		return "addLibrary";
+	}
+	
+	@RequestMapping(path = "requestes/accept")
+	public String accept(Model model,@RequestParam(name = "id") int id) {
+		
+		Library library= libraryRepository.findLibraryById(id);
+		Person owner =personRepository.findPersonById(library.getOwner().getPerson_id());
 		
 		User user =new User();
 		user.setUsername(owner.getEmail());
@@ -54,9 +78,24 @@ public class LibraryController {
 		personRepository.save(owner);
 		
 		library.setOwner(owner);
+		library.setStatus("accepted");
 		libraryRepository.save(library);
 		
-		return "library";
+		model.addAttribute("libraries",libraryRepository.findLibraryByStatus("pending"));
+		return "libraryRequestes";
 	}
-
+	
+	
+	@RequestMapping(path = "requestes/reject")
+	public String reject(Model model,@RequestParam(name = "id") int id) {
+		
+		Library library= libraryRepository.findLibraryById(id);
+		Person owner =personRepository.findPersonById(library.getOwner().getPerson_id());
+		
+		owner.setUser(null);
+		personRepository.delete(owner);
+		
+		model.addAttribute("libraries",libraryRepository.findLibraryByStatus("pending"));
+		return "libraryRequestes";
+	}
 }
