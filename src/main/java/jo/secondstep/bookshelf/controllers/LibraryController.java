@@ -2,7 +2,6 @@ package jo.secondstep.bookshelf.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,7 +32,7 @@ public class LibraryController {
 	PermissionRepository permissionRepository;
 	
 	@GetMapping("/")
-	public String home(ModelMap model) {
+	public String home() {
 		return "addLibrary";
 	}
 	
@@ -46,8 +45,18 @@ public class LibraryController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST )
-	public String submit(Model model, @ModelAttribute("library") Library library,@ModelAttribute("owner") Person owner) {
-
+	public String submit(ModelMap model, @ModelAttribute("library") Library library,@ModelAttribute("owner") Person owner) {
+        Boolean error =false;
+		if(owner.getName()=="" || owner.getEmail()=="" || owner.getPhone_number()=="" ||
+				library.getLibrary_name()=="" || 	library.getLocation()=="" || 
+				library.getDescription() == "") {
+			    error = true;
+			model.addAttribute("error",error);
+			return "addLibrary";
+		}
+		
+		model.addAttribute("error",error);
+		
 		owner.setUser(null);
 		personRepository.save(owner);
 		
@@ -59,7 +68,7 @@ public class LibraryController {
 	}
 	
 	@RequestMapping(path = "requestes/accept")
-	public String accept(Model model,@RequestParam(name = "id") int id) {
+	public String accept(ModelMap model,@RequestParam(name = "id") int id) {
 		
 		Library library= libraryRepository.findLibraryById(id);
 		Person owner =personRepository.findPersonById(library.getOwner().getPerson_id());
@@ -87,7 +96,7 @@ public class LibraryController {
 	
 	
 	@RequestMapping(path = "requestes/reject")
-	public String reject(Model model,@RequestParam(name = "id") int id) {
+	public String reject(ModelMap model,@RequestParam(name = "id") int id) {
 		
 		Library library= libraryRepository.findLibraryById(id);
 		Person owner =personRepository.findPersonById(library.getOwner().getPerson_id());

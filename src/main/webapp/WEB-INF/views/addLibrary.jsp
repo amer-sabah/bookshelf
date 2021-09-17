@@ -9,7 +9,6 @@
 <title>Library Page</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
- 
 </head>
 <body>
    
@@ -54,11 +53,17 @@
   
        <div class="form-floating mb-3" style="position: relative;">
          <input type="submit" value="Submit" class="btn btn-primary" 
-              style="width:50% ; position: absolute; right: 25%" />
+              style="width:50% ; position: absolute; right: 25%"/>
        </div>
        
       </form:form>
-      
+         <c:choose>
+           <c:when test="${error ==true }">
+              <div class="alert alert-danger" role="alert" id="error" style="margin-top: 70px">
+                Please fill all fields
+             </div>
+           </c:when>
+         </c:choose>
       </div>
    
 </body>
