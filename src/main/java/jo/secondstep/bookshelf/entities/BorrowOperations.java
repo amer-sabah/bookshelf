@@ -27,7 +27,10 @@ public class BorrowOperations{
 	
 	@Column(name = "accept")
 	private LocalDate acccept;
-
+    
+	@Column(name = "status")
+	private String status;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="customer_id")
 	Person customer;
@@ -60,6 +63,14 @@ public class BorrowOperations{
 		this.acccept = acccept;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public Person getCustomer() {
 		return customer;
 	}
@@ -78,9 +89,12 @@ public class BorrowOperations{
 
 	@Override
 	public String toString() {
-		return "BorrowOperation [id=" + id + ", number_of_borrow_days=" + number_of_borrow_days + ", acccept=" + acccept
-				+ ", customer=" + customer + ", book=" + book + "]";
+		return "BorrowOperations [id=" + id + ", number_of_borrow_days=" + number_of_borrow_days + ", acccept="
+				+ acccept + ", status=" + status + ", customer=" + customer + ", book=" + book + "]";
 	}
+	
+
+	
 
 	
 	

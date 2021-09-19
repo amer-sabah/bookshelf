@@ -78,6 +78,7 @@ public class BorrowOperationsController{
 	       borrowOperation.setBook(booksLibrary);
 	       borrowOperation.setNumber_of_borrow_days(numberDays);
 	       borrowOperation.setAcccept(null);
+	       borrowOperation.setStatus("pending");
 	       borrowOperationRepo.save(borrowOperation);
 		
 		   return "borrowForm";
@@ -88,7 +89,7 @@ public class BorrowOperationsController{
 	@RequestMapping( value = "/request" )
 	public String request(ModelMap model) {
 		model.addAttribute("requests",
-				            borrowOperationRepo.findBorrowOperationsByAccept());
+				            borrowOperationRepo. findBorrowOperationsByStatus("pending"));
 		
         return "borrowRequests";
 	}
@@ -110,6 +111,7 @@ public class BorrowOperationsController{
 		 
 		 borrowOperations.getCustomer().setUser(user);
 		 borrowOperations.setAcccept(LocalDate.now());
+		 borrowOperations.setStatus("accepted");
 		 borrowOperationRepo.save(borrowOperations);
 		 
 		 int newQuantity=booksLibrary.getQuantity()-1;
@@ -117,7 +119,7 @@ public class BorrowOperationsController{
 		 booksLibraryRepository.save(booksLibrary);
 		 
 		 model.addAttribute("requests",
-		            borrowOperationRepo.findBorrowOperationsByAccept());
+		            borrowOperationRepo. findBorrowOperationsByStatus("pending"));
 		 
 		 return "borrowRequests";
 	}
@@ -126,12 +128,11 @@ public class BorrowOperationsController{
 	public String reject(@RequestParam (name="id") int id,ModelMap model) {
 		
 		 BorrowOperations borrowOperations= borrowOperationRepo.findBorrowOperationsById(id);
-		 Person customer=borrowOperations.getCustomer();
-		 borrowOperationRepo.delete(borrowOperations); 	
-		 personRepository.delete(customer);
+		 borrowOperations.setStatus("rejected");
+		 borrowOperationRepo.save(borrowOperations);
 		 
 		 model.addAttribute("requests",
-	            borrowOperationRepo.findBorrowOperationsByAccept());
+	            borrowOperationRepo. findBorrowOperationsByStatus("pending"));
 	 
 		return "borrowRequests";
 	}

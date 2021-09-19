@@ -15,6 +15,6 @@ public interface BorrowOperationRepository extends CrudRepository<BorrowOperatio
 	@Query(value="select * from borrow_operations where id  like %?1%",nativeQuery = true)
 	public BorrowOperations findBorrowOperationsById(int id);
 	
-	@Query(value = "select * from borrow_operations where accept is null",nativeQuery = true)
-	public List<BorrowOperations> findBorrowOperationsByAccept();
+	@Query(value = "select * from borrow_operations where status like %?1%",nativeQuery = true)
+	public List<BorrowOperations> findBorrowOperationsByStatus(String status);
 }
