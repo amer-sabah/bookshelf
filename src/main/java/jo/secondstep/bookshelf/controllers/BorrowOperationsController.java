@@ -129,6 +129,7 @@ public class BorrowOperationsController{
 		
 		 BorrowOperations borrowOperations= borrowOperationRepo.findBorrowOperationsById(id);
 		 borrowOperations.setStatus("rejected");
+		 borrowOperations.setAcccept(LocalDate.now());
 		 borrowOperationRepo.save(borrowOperations);
 		 
 		 model.addAttribute("requests",
