@@ -66,14 +66,20 @@ tr:nth-child(even) {
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light"> <input
-		type="button" style="padding: 0; border: none; background: none;"
-		value="Borrow History" onclick='myfunction();'> <input
-		type="button" style="padding: 0; border: none; background: none;"
-		value="All History" onclick='myfunction0();'> <input
-		type="button" style="padding: 0; border: none; background: none;"
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	
+	 <input
+		type="button" style="padding: 0; border: none; background: none;
+		color:#5D6D7E"class="nav-item nav-link"
+		value="Borrow History" onclick='myfunction();'> &nbsp;&nbsp; 
+		<input
+		type="button" style="padding: 0; border: none; background: none; background-color:#CCD1D1;padding: 5px;" class="navbar-brand"
+		value="All History" onclick='myfunction0();'>  &nbsp;&nbsp;
+		<input
+		type="button" type="button" style="padding: 0; border: none; background: none;
+		color:#5D6D7E"class="nav-item nav-link"
 		value="Buy History" onclick='myfunction1();'>
-
+ &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 
 	<form class="form-inline my-2 my-lg-0">
 		<input type="text" id="my" class="form-control mr-sm-2"
