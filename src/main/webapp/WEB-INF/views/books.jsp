@@ -32,18 +32,24 @@
 	function borrow(id){
 		window.location.href = "http://localhost:8080/Bookshelf/borrowoperations?id="+id;
 	}
+	
+	function buy(person_id,book_id){
+		window.location.href = "http://localhost:8080/Bookshelf/buy?person_id="+person_id+"&&book_id="+book_id;
+	}
 </script>
 
 <title>${library_name}-Books</title>
 </head>
-<body style="background-color:#E8F5E9">
+<body style="background-color: #E8F5E9">
 
 	<c:set var="colors" scope="application">"#BC3067","#77E630","#02A2EE","#e54b30","#ff1985" </c:set>
 
 	<div class="container">
 		<div class="row ">
-			<div class="col-4" style="margin-top:16px;margin-bottom:16px">
-				<a style="text-decoration: none;color:black" href="http://localhost:8080/Bookshelf/book/library?id=${library_id}" class="display-6" >${library_name}</a>
+			<div class="col-4" style="margin-top: 16px; margin-bottom: 16px">
+				<a style="text-decoration: none; color: black"
+					href="http://localhost:8080/Bookshelf/book/library?id=${library_id}"
+					class="display-6">${library_name}</a>
 			</div>
 			<div class="col-8">
 				<div class="input-group mb-3 w-75 p-3">
@@ -58,9 +64,9 @@
 		</div>
 	</div>
 	<c:if test="${empty(books)}">
-		<h3 style="margin:32px">There is no available books.</h3>
+		<h3 style="margin: 32px">There is no available books.</h3>
 	</c:if>
-	
+
 	<div class="container">
 		<div class="row">
 			<c:forEach items="${books}" var="bookInLibrary">
@@ -72,14 +78,20 @@
 							<h6 class="card-subtitle mb-2 text-muted">${book.getCategory().getName() }</h6>
 							<p class="card-text">By ${book.getAuthor() }</p>
 							<div class="align-self-start mt-auto">
-							<h6>Available copies: <c:out value="${bookInLibrary.getQuantity()}"></c:out></h6>
-								<h5 class="card-title" style="color:#dc3545">$ ${book.getPrice() }</h5>
+								<h6>
+									Available copies:
+									<c:out value="${bookInLibrary.getQuantity()}"></c:out>
+								</h6>
+								<h5 class="card-title" style="color: #dc3545">$
+									${book.getPrice() }</h5>
 								<c:choose>
-		 							<c:when test="${bookInLibrary.getStatus()== 'borrow'}">
-										<a href="#" class="btn btn-primary  " onclick="borrow(${bookInLibrary.id})">Borrow</a>
+									<c:when test="${bookInLibrary.getStatus()== 'borrow'}">
+										<a href="#" class="btn btn-primary  "
+											onclick="borrow(${bookInLibrary.id})">Borrow</a>
 									</c:when>
 									<c:otherwise>
-										<a href="#" class="btn btn-warning ">Buy</a>
+										<a href="#" class="btn btn-warning "
+											onclick="buy(1,${bookInLibrary.id})">Buy</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
