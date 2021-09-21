@@ -9,20 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import jo.secondstep.bookshelf.entities.Book;
 import jo.secondstep.bookshelf.entities.BooksLibrary;
 import jo.secondstep.bookshelf.entities.Library;
 import jo.secondstep.bookshelf.repositories.BooksLibraryRepository;
-import jo.secondstep.bookshelf.repositories.BooksRepository;
 import jo.secondstep.bookshelf.repositories.LibraryRepository;
 
 @Controller
 @RequestMapping(value = "book")
 public class BookController {
 
-	@Autowired
-	private BooksRepository booksRepository;
 	@Autowired
 	private BooksLibraryRepository booksLibraryRepository;
 	@Autowired
@@ -38,8 +33,7 @@ public class BookController {
 		booksInLibrary = booksLibraryRepository.findBooksByLibraryId(id);
 		map.addAttribute("books", booksInLibrary);
 		map.addAttribute("library_id", id);
-		libraryName = booksInLibrary.stream().filter(b -> id == b.getLibrary().getLibrary_id())
-				.findFirst().get().getLibrary().getLibrary_name();
+		libraryName = libraryRepository.findById(id).get().getLibrary_name();
 		map.addAttribute("library_name", libraryName);
 		return "books";
 	}
@@ -49,11 +43,10 @@ public class BookController {
 			ModelMap map) {
 		if(booksInLibrary == null) {
 			booksInLibrary = booksLibraryRepository.findBooksByLibraryId(id);
-			libraryName = booksInLibrary.stream().filter(b -> id == b.getLibrary().getLibrary_id())
-					.findFirst().get().getLibrary().getLibrary_name();
+			libraryName = libraryRepository.findById(id).get().getLibrary_name();
 		}
 		
-		Object[] books = booksInLibrary.stream().filter(b -> b.getBook().getName().contains(bookName)).toArray();
+		Object[] books = booksInLibrary.stream().filter(b -> b.getBook().getName().toLowerCase().contains(bookName.toLowerCase())).toArray();
 
 		map.addAttribute("books", books);
 		map.addAttribute("library_id", id);
