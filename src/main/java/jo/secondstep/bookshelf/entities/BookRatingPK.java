@@ -3,6 +3,7 @@ package jo.secondstep.bookshelf.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable  //must put annotation here 
@@ -13,8 +14,11 @@ public class BookRatingPK implements Serializable{
 		super();
 	}
 
+	
+	@Column(name="person_id")
 	private Integer customerId;
 
+	@Column(name="book_id")
 	private Integer bookId;
 	
 	

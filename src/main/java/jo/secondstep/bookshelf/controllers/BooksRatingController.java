@@ -67,11 +67,16 @@ public class BooksRatingController {
 		
 		booksRatingEntity.setId(bookRatingPK);
 		int r = bookRating.getRate();
-		if (r>5)
+		if (r<1)
 			{
-			r=5;    
+			r=1;    
 			booksRatingEntity.setRate(r);
 			}
+		if (r>5)
+		{
+		r=5;    
+		booksRatingEntity.setRate(r);
+		}
 		
 		else { booksRatingEntity.setRate(r); }
 		booksRatingEntity.setFeedback(bookRating.getFeedback());
