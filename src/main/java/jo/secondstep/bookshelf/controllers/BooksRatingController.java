@@ -1,6 +1,5 @@
 package jo.secondstep.bookshelf.controllers;
 
-
 import java.util.List;
 import java.util.Random;
 
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import jo.secondstep.bookshelf.DTO.BooksRatingDto;
 import jo.secondstep.bookshelf.entities.Book;
@@ -19,6 +17,7 @@ import jo.secondstep.bookshelf.entities.BookRatingPK;
 import jo.secondstep.bookshelf.entities.BooksRatingEntity;
 import jo.secondstep.bookshelf.entities.Person;
 import jo.secondstep.bookshelf.repositories.BookRatingRepository;
+import jo.secondstep.bookshelf.repositories.BooksRepository;
 import jo.secondstep.bookshelf.repositories.PersonRepository;
 
 
@@ -35,8 +34,8 @@ public class BooksRatingController {
 	//@Autowired
 	//private Person personRepo;
 	
-	//@Autowired 
-	//private BooksRepository bookRepo1;
+	@Autowired 
+	private BooksRepository bookRepo1;
 	
 	@GetMapping("/")
     public String home(Model model) {
@@ -49,17 +48,20 @@ public class BooksRatingController {
 	
 	 @RequestMapping(method = RequestMethod.POST)
 	 
-	public <S> String submit(Model model, @ModelAttribute("booksRatingDto") BooksRatingDto bookRating  , @RequestParam(value="book_id") int book_id){
+	public <S> String submit(Model model, @ModelAttribute("booksRatingDto") BooksRatingDto bookRating  ){
 	//System.out.println("Leeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeen");
 	List<Person> persons = (List<Person>) personRepo.findAll();
-	
-
 	Random rand = new Random();
 	int randomId = rand.nextInt(persons.size());
+	
+	
+    List<Book> books = (List<Book>) bookRepo1.findAll();
+    Random rand2 = new Random();
+	int rand2Id = rand2.nextInt(books.size());
 
 	BookRatingPK bookRatingPK = new BookRatingPK();
 		bookRatingPK.setCustomerId(persons.get(randomId).getPerson_id());
-		bookRatingPK.setBookId(book_id);
+		bookRatingPK.setBookId(books.get(rand2Id).getId());
 		
 		BooksRatingEntity booksRatingEntity = new BooksRatingEntity();
 		
@@ -70,10 +72,6 @@ public class BooksRatingController {
 			r=5;    
 			booksRatingEntity.setRate(r);
 			}
-		else if (r>1) {
-			r=1;
-			booksRatingEntity.setRate(r);
-		}
 		
 		else { booksRatingEntity.setRate(r); }
 		booksRatingEntity.setFeedback(bookRating.getFeedback());
