@@ -46,7 +46,10 @@
 <h3> Book </h3>
  <h1 >Shelf</h1>
 <br> &nbsp;&nbsp;&nbsp;
- <a href="http://localhost:8080/Bookshelf/library/"
+                                <a href="http://localhost:8080/Bookshelf/library/"
+								class="nav-item nav-link" style="color:#5D6D7E">Libraries</a>
+								
+                                <a href="http://localhost:8080/Bookshelf/library/addLibrary"
 								class="nav-item nav-link" style="color:#5D6D7E">Add Library</a>
 								 
 								  <a href="http://localhost:8080/Bookshelf/library/requestes"
