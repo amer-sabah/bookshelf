@@ -63,7 +63,7 @@ public class BooksRatingController {
 		bookRatingPK.setCustomerId(persons.get(randomId).getPerson_id());
 		bookRatingPK.setBookId(books.get(rand2Id).getId());
 		
-		BooksRatingEntity booksRatingEntity = new BooksRatingEntity();
+        BooksRatingEntity booksRatingEntity = new BooksRatingEntity();
 		
 		booksRatingEntity.setId(bookRatingPK);
 		int r = bookRating.getRate();

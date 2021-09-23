@@ -8,6 +8,9 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 
 
 //one book has multiple ratings 
@@ -18,6 +21,7 @@ import javax.persistence.GenerationType;
 public class BooksRatingEntity implements Serializable{
 
 
+	
 	@EmbeddedId
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private BookRatingPK  bookRatingId;
@@ -28,8 +32,17 @@ public class BooksRatingEntity implements Serializable{
 	
 	@Column(name="feedback")
 	private String feedback;
+	
+	
+	
 
-
+	 
+	
+	
+	
+	
+	
+	
 	public BooksRatingEntity()
 	{
 		
