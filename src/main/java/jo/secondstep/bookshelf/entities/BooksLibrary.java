@@ -3,7 +3,9 @@ package jo.secondstep.bookshelf.entities;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,18 +16,21 @@ import javax.persistence.Table;
 @Table(name = "books_in_library")
 public class BooksLibrary {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@ManyToOne(targetEntity = Library.class, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "library_id")
 	private Library library;
-	@ManyToOne(targetEntity = Book.class, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "book_id")
 	private Book book;
 
+	@Column(name = "quantity")
 	private int quantity;
+	@Column(name = "status")
 	private String status;
+	
 	@Override
 	public String toString() {
 		return "BooksLibrary [id=" + id + ", library=" + library + ", book=" + book + ", quantity=" + quantity
