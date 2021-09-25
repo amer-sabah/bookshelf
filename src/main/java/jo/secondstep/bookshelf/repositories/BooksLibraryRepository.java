@@ -16,5 +16,4 @@ public interface BooksLibraryRepository  extends CrudRepository<BooksLibrary, In
 			+ "where library_id = ?1 ",nativeQuery = true)
 	public List<BooksLibrary> findBooksByLibraryId(Integer id);
 	
-	
 }

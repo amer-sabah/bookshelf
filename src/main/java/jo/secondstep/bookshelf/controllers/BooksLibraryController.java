@@ -33,14 +33,7 @@ public class BooksLibraryController {
 	
 	BooksLibrary booksLibrary;
 	
-	/*@RequestMapping("/allBooks")
-	public ModelAndView listBooks(ModelAndView modelView) {
-		
-	    modelView.setViewName("addBookToLibrary");
-	    modelView.addObject("listbook", booksRepository.findAll());
-
-	    return modelView;
-	}*/
+	int libraryIDToshow;
 	
 	@RequestMapping( value = "/" )
 	public String home() {
@@ -86,8 +79,24 @@ public class BooksLibraryController {
 		return "addBookToLibrary";
 	}
 	
+	@RequestMapping("/allBooks")
+	public String listBooks(ModelMap model,@RequestParam (name="libraryId") int libraryId) {
+		
+		libraryIDToshow =libraryId; 
+	    model.addAttribute("booklist",booksLibraryRepository.findBooksByLibraryId(libraryId));
+	    return "deleteBook";
+	}
 	
 	
+	@RequestMapping( value = "/deleteBook" )
+	public String deleteBook(ModelMap model,@RequestParam (name="bookId") int bookId) {
+		
+
+		booksLibraryRepository.deleteById(bookId);
+		
+		model.addAttribute("booklist",booksLibraryRepository.findBooksByLibraryId(libraryIDToshow));
+	    return "deleteBook";
+	}
 	
 	
 	

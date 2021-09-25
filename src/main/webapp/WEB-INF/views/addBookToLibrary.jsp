@@ -36,15 +36,17 @@
 
 <body>
 
-  <form class="mb-3">
-    	<input id="search" type="text" class="form-control" placeholder="Search">
-        <button  type="button" class="btn btn-primary" onclick="SearchBook()">Search</button>
+  <form class="mb-3" style="width:70%;margin-left: auto; margin-right: auto; margin-top: 50px">
+    	<input id="search" type="text" class="form-control" placeholder="Search for book" 
+    	        style="width:80%; display: inline-block;">
+        <button  type="button" class="btn btn-primary" onclick="SearchBook()"
+                 style="display: inline-block;" >Search</button>
   </form>
 
 
   
   <c:forEach items="${ books }" var="book">
-     <div class="card" style="width: 18rem;">
+     <div class="card" style="width: 18rem; margin-left: auto; margin-right: auto; margin-top: 50px">
       <div class="card-body">
         <h5 class="card-title">${book.name}</h5>
         <p class="card-text">${book.author}</p>
@@ -56,15 +58,17 @@
  
  
   <c:if test="${show}">
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">quantity</span>
-      <input id="quantity" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-   <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-sm">status</span>
-      <input id="status" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
+    <div style="width:70%;margin-left: auto; margin-right: auto; margin-top: 50px">
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">quantity</span>
+        <input id="quantity" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">status</span>
+        <input id="status" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
       <button type="submit" class="btn btn-primary" onclick="submit()">submit</button>
+    </div>
   </c:if>
 
 </body>

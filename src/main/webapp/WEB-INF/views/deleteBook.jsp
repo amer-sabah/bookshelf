@@ -6,23 +6,32 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ADD BOOKS</title>
+<title>Edit Books in Library</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+  
+ function Delete(id){
+	 window.location.href = "http://localhost:8080/Bookshelf/addBooks/deleteBook?bookId="+id;
+ }   
+    
+</script>
 </head>
+
 <body>
 
-
-<div class="input-group input-group-sm mb-3">
-  <span class="input-group-text" id="inputGroup-sizing-sm">quantity</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-</div>
-  <div class="input-group input-group-sm mb-3">
-  <span class="input-group-text" id="inputGroup-sizing-sm">status</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-</div>
-
-
-
+  <c:forEach items="${booklist}" var="bookInLibrary">
+     <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${bookInLibrary.getBook().getName()}</h5>
+        <button type="button" class="btn btn-danger" onclick="Delete(${bookInLibrary.id})">delete</button>
+       </div>
+     </div>
+  </c:forEach>
+ 
+ 
 </body>
+
+
+</html>

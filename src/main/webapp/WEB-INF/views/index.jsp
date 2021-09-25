@@ -58,6 +58,9 @@
 								   <a href="http://localhost:8080/Bookshelf/book/selectLibrary"
 								class="nav-item nav-link"style="color:#5D6D7E">Select Library</a>
 								
+								<a href="http://localhost:8080/Bookshelf/addBooks/"
+								class="nav-item nav-link"style="color:#5D6D7E">Add book to Library</a>
+								
 								<a href="http://localhost:8080/Bookshelf/bookRating/"
 								class="nav-item nav-link"style="color:#5D6D7E">Rate A Book</a>
 								
