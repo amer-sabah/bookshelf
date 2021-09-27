@@ -94,6 +94,7 @@ public class BookController {
 
 		selectedBook.setQuantity(quantity);
 		booksLibraryRepository.save(selectedBook);
+		System.out.println(book);
 
 		return model;
 	}
@@ -105,6 +106,18 @@ public class BookController {
 		List<Library> libraries = (List<Library>) libraryRepository.findAll();
 		model.addObject("libraries", libraries);
 
+		return model;
+	}
+	
+	@RequestMapping("/edit")
+	public ModelAndView editBook(@RequestParam("book_id") int bookId) {
+		
+		ModelAndView model = new ModelAndView("bookEditing");
+		
+		BooksLibrary book = booksLibraryRepository.findById(bookId).get();
+		model.addObject("book", book);
+		
+		
 		return model;
 	}
 	

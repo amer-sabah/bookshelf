@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import jo.secondstep.bookshelf.entities.Book;
 import jo.secondstep.bookshelf.entities.BooksLibrary;
@@ -136,6 +137,41 @@ public class BorrowOperationsController{
 	            borrowOperationRepo. findBorrowOperationsByStatus("pending"));
 	 
 		return "borrowRequests";
+	}
+	
+	@RequestMapping(value = "/return", method = RequestMethod.GET )
+	public ModelAndView returnBook() {
+		
+		ModelAndView model = new ModelAndView("return");
+		System.out.println("return without param");
+		
+		List<BorrowOperations> borrowedBooks = (List<BorrowOperations>) borrowOperationRepo.findAll();
+		model.addObject("borrowedBooks", borrowedBooks);
+		System.out.println(borrowedBooks.get(0).getBook().getLibrary().getLibrary_name());
+		
+		return model;
+		
+	}
+	
+	@RequestMapping(value = "/returned")
+	public ModelAndView returned(@RequestParam("returnedBook") int returnedBookID) {
+		
+		ModelAndView model = new ModelAndView("returned");
+		System.out.println("return with param");
+		
+		
+		BorrowOperations returnedBook = borrowOperationRepo.findById(returnedBookID).get();
+		model.addObject("returnedBook", returnedBook);
+		returnedBook.getBook().setQuantity(returnedBook.getBook().getQuantity()+1);
+		booksLibraryRepository.save(returnedBook.getBook());
+		
+		borrowOperationRepo.deleteById(returnedBookID);
+		System.out.println("*********************");
+		
+//		System.out.println("****************" + returnedBook.getCustomer().getName() + "*********************************");
+		
+		return model;
+		
 	}
 }
 
