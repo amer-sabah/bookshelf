@@ -33,18 +33,6 @@
 <script src="../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 <style>
-body {
-	font-family: 'Poppins', sans-serif;
-	background: rgb(107, 186, 222);
-	background: -moz-linear-gradient(90deg, rgba(107, 186, 222, 1) 0%,
-		rgba(232, 156, 205, 1) 100%);
-	background: -webkit-linear-gradient(90deg, rgba(107, 186, 222, 1) 0%,
-		rgba(232, 156, 205, 1) 100%);
-	background: linear-gradient(90deg, rgba(107, 186, 222, 1) 0%,
-		rgba(232, 156, 205, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6bbade",
-		endColorstr="#e89ccd", GradientType=1);
-}
 
 table {
 	width: 90%;
@@ -65,24 +53,23 @@ tr:nth-child(even) {
 </head>
 
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	
-	 <input
-		type="button" style="padding: 0; border: none; background: none;
-		color:#5D6D7E"class="nav-item nav-link"
-		value="Borrow History" onclick='myfunction();'> &nbsp;&nbsp; 
-		<input
-		type="button" style="padding: 0; border: none; background: none; background-color:#CCD1D1;padding: 5px;" class="navbar-brand"
-		value="All History" onclick='myfunction0();'>  &nbsp;&nbsp;
-		<input
-		type="button" type="button" style="padding: 0; border: none; background: none;
-		color:#5D6D7E"class="nav-item nav-link"
-		value="Buy History" onclick='myfunction1();'>
- &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+	<jsp:include page="header.jsp"></jsp:include>
+	<br>
+	<nav class="navbar navbar-expand-lg "> <input
+		type="button"
+		style="padding: 0; border: none; background: none; color: #5D6D7E"
+		class="nav-item nav-link" value="Borrow History"
+		onclick='myfunction();'> &nbsp;&nbsp; <input type="button"
+		style="padding: 0; border: none; background: none; background-color: #CCD1D1; padding: 5px;"
+		class="navbar-brand" value="All History" onclick='myfunction0();'>
+	&nbsp;&nbsp; <input type="button" type="button"
+		style="padding: 0; border: none; background: none; color: #5D6D7E"
+		class="nav-item nav-link" value="Buy History" onclick='myfunction1();'>
+	&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 
 	<form class="form-inline my-2 my-lg-0">
-		<input type="text" id="my" class="form-control mr-sm-2"
+	
+	 	<input type="text" id="my" class="form-control mr-sm-2"
 			onkeyup="searchTableColumns()" placeholder="Search ..">
 
 	</form>
