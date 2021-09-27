@@ -31,8 +31,51 @@ public class LibraryController {
 	@Autowired
 	PermissionRepository permissionRepository;
 	
+	Library updateLibrary;
+	
 	@GetMapping("/")
-	public String home() {
+	public String home(ModelMap model) {
+		model.addAttribute("libraries",libraryRepository.findLibraryByStatus("accepted"));
+		return "libraries";
+	}
+	
+	@RequestMapping(path = "/inactivate")
+	public String inactivate(@RequestParam(name = "id") int libraryId) {
+		Library library = libraryRepository.findLibraryById(libraryId);
+		library.setStatus("inactivated");
+		
+		libraryRepository.save(library);
+		return "libraries";
+	}
+	
+	@RequestMapping(path = "/update")
+	public String update(@RequestParam(name = "id") int libraryId) {
+	
+		updateLibrary = libraryRepository.findLibraryById(libraryId);		
+	    return "updateLibraryForm";
+	}
+	
+	@RequestMapping(path = "/submitUpdate")
+	public String submitUpdate(ModelMap model,@RequestParam(name = "libraryName") String libraryName,
+			                   @RequestParam(name = "location") String location,
+			                   @RequestParam(name = "description") String description) {
+		
+		
+		Boolean success=false;
+		if(libraryName != "" || location != "" || description != "" ) {
+			updateLibrary.setLibrary_name(libraryName);	
+		    updateLibrary.setLocation(location);
+		    updateLibrary.setDescription(description);
+		    libraryRepository.save(updateLibrary);
+		    success = true;
+		}
+		
+		model.addAttribute("success", success);
+		return "updateLibraryForm";
+	}
+	
+	@GetMapping("/addLibrary")
+	public String addLibrary() {
 		return "addLibrary";
 	}
 	

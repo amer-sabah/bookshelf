@@ -22,6 +22,13 @@ public interface BorrowOperationRepository extends CrudRepository<BorrowOperatio
 	@Query(value = "select * from borrow_operations where status like %?1%",nativeQuery = true)
 	public List<BorrowOperations> findBorrowOperationsByStatus(String status);
 	
+	@Query(value = "select * from borrow_operations b "
+			+ " join books_in_library a on a.id = b.book_id "
+			+ " where a.library_id = ?1 "
+			+ " order by b.accept desc",nativeQuery = true)
+	List<BorrowOperations> getOperationsByLibrary(Integer libraryId);
+	
 	@Query(value = "select * from borrow_operations " + "where customer_id like %?1%", nativeQuery = true)
 	List<BorrowOperations> findAllBook(Integer person_id);
+
 }

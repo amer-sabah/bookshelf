@@ -39,7 +39,6 @@
 </head>
 <body style='
  background-image: url("https://images.unsplash.com/photo-1593814013328-6041acc27094?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJvb2tzaGVsZnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-
   background-size: cover;'>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
@@ -47,7 +46,10 @@
 <h3> Book </h3>
  <h1 >Shelf</h1>
 <br> &nbsp;&nbsp;&nbsp;
- <a href="http://localhost:8080/Bookshelf/library/"
+                                <a href="http://localhost:8080/Bookshelf/library/"
+								class="nav-item nav-link" style="color:#5D6D7E">Libraries</a>
+								
+                                <a href="http://localhost:8080/Bookshelf/library/addLibrary"
 								class="nav-item nav-link" style="color:#5D6D7E">Add Library</a>
 								 
 								  <a href="http://localhost:8080/Bookshelf/library/requestes"
@@ -55,6 +57,14 @@
 								 
 								   <a href="http://localhost:8080/Bookshelf/book/selectLibrary"
 								class="nav-item nav-link"style="color:#5D6D7E">Select Library</a>
+								
+								<a href="http://localhost:8080/Bookshelf/addBooks/"
+								class="nav-item nav-link"style="color:#5D6D7E">Add book to Library</a>
+								
+								<a href="http://localhost:8080/Bookshelf/bookRating/"
+								class="nav-item nav-link"style="color:#5D6D7E">Rate A Book</a>
+								
+								
 								 
 								  <a href="http://localhost:8080/Bookshelf/book/increaseQuantity?id=2"
 								class="nav-item nav-link" style="color:#5D6D7E">Update Books Quantity</a>
