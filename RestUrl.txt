@@ -1,0 +1,35 @@
+                    ------------------------> Book <-----------------------------
+
+1- find Book By Name
+http://localhost:8080/Bookshelf/RestBook/searchBookName?book_name=The%20Summer%20House
+
+2- find Books By Caregory
+http://localhost:8080/Bookshelf/RestBook/searchCaregory?caregory_name=Mystery
+
+3- find Books By Library
+http://localhost:8080/Bookshelf/RestBook/searchLibrary?library_name=Al-Wafa
+
+4- find Books By Category and Status (Buy,Borrow)
+http://localhost:8080/Bookshelf/RestBook/searchBookStatusCategory?category_name=Children&status=buy
+
+
+                    ------------------------> Library <-----------------------------
+
+5- find Libaray By Name
+http://localhost:8080/Bookshelf/RestLibrary/searchLibraryName?library_name=Al-Wafa
+
+6- find Libraries By Location
+http://localhost:8080/Bookshelf/RestLibrary/searchLibraryLocation?location=Irbid
+
+7- find Libraries By Owner
+http://localhost:8080/Bookshelf/RestLibrary/searchLibraryOwner?owner_name=Mai Qamaj
+
+
+8- find Libraries By Status
+http://localhost:8080/Bookshelf/RestLibrary/searchLibraryStatus?status=accepted
+
+
+9- find Libraries By Book Name
+http://localhost:8080/Bookshelf/RestLibrary/searchLibraryBook?book_name=Rich%20Dad%20Poor%20Dad
+
+
