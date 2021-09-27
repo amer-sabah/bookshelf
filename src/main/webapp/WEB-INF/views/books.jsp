@@ -2,6 +2,8 @@
 	pageEncoding="windows-1256"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <html>
 <head>
 <meta charset="windows-1256">
@@ -38,16 +40,19 @@
 	}
 </script>
 
-<title>${library_name}-Books</title>
+
 </head>
-<body style="background-color: #E8F5E9">
+<body>
+
+	<jsp:include page="header.jsp"></jsp:include>
+
 
 	<c:set var="colors" scope="application">"#BC3067","#77E630","#02A2EE","#e54b30","#ff1985" </c:set>
 
 	<div class="container">
 		<div class="row ">
 			<div class="col-4" style="margin-top: 16px; margin-bottom: 16px">
-				<a style="text-decoration: none; color: black"
+				<a style="text-decoration: none; color: blue"
 					href="http://localhost:8080/Bookshelf/book/library?id=${library_id}"
 					class="display-6">${library_name}</a>
 			</div>
@@ -56,7 +61,7 @@
 
 					<input id="searchText" type="text" class="form-control"
 						placeholder="Search">
-					<button id="searchBtn" type="button" class="btn btn-success"
+					<button id="searchBtn" type="button" class="btn btn-primary"
 						onclick="search()">Search</button>
 
 				</div>
@@ -71,29 +76,13 @@
 		<div class="row">
 			<c:forEach items="${books}" var="bookInLibrary">
 				<c:set var="book" value="${bookInLibrary.getBook() }"></c:set>
-				<div class="col-3">
-					<div class="card h-100">
+				<div class="col-12" style="margin-bottom: 8px">
+					<div class="card">
 						<div class="card-body  d-flex flex-column">
-							<h4 class="card-title">${book.getName() }</h4>
-							<h6 class="card-subtitle mb-2 text-muted">${book.getCategory().getName() }</h6>
-							<p class="card-text">By ${book.getAuthor() }</p>
-							<div class="align-self-start mt-auto">
-								<h6>
-									Available copies:
-									<c:out value="${bookInLibrary.getQuantity()}"></c:out>
-								</h6>
-								<h5 class="card-title" style="color: #dc3545">$
-									${book.getPrice() }</h5>
-								<c:choose>
-									<c:when test="${bookInLibrary.getStatus()== 'borrow'}">
-										<a href="#" class="btn btn-primary  "
-											onclick="borrow(${bookInLibrary.id})">Borrow</a>
-									</c:when>
-									<c:otherwise>
-										<a href="#" class="btn btn-warning "
-											onclick="buy(1,${bookInLibrary.id})">Buy</a>
-									</c:otherwise>
-								</c:choose>
+							<h5 class="card-title">${book.getName() }</h5>
+							<div class="card-subtitle text-muted d-flex bd-highlight " >
+								<div class="p-2 flex-grow-1 bd-highlight">${book.getCategory().getName() }</div>
+								<div class="p-2 bd-highlight"> <a href="#" class="btn btn-outline-success ">Open Book page</a></div>
 							</div>
 						</div>
 					</div>
@@ -102,6 +91,10 @@
 			</c:forEach>
 		</div>
 	</div>
+
+
+
+
 
 </body>
 </html>
