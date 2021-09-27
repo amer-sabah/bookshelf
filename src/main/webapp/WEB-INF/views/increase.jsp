@@ -36,7 +36,7 @@
       <td>${book.getBook().getName() }</td>
       <td>${book.getQuantity() }</td>
       <td>${book.getStatus() }</td>
-      <td>5 Stars</td>
+      <td>${bookRatingRepository.findRateByBookID(book.getId()) } Stars</td>
       <td><button name="book" class="btn btn-outline-success" value="${book.getId() }" onclick="editBook(this)"> Edit </button></td>
       </tr>
 		

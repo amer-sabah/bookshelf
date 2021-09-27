@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import jo.secondstep.bookshelf.entities.BooksLibrary;
 import jo.secondstep.bookshelf.entities.Library;
+import jo.secondstep.bookshelf.repositories.BookRatingRepository;
 import jo.secondstep.bookshelf.repositories.BooksLibraryRepository;
 import jo.secondstep.bookshelf.repositories.LibraryRepository;
 
@@ -22,6 +23,8 @@ public class BookController {
 	private BooksLibraryRepository booksLibraryRepository;
 	@Autowired
 	private LibraryRepository libraryRepository;
+	@Autowired
+	private BookRatingRepository bookRatingRepository;
 
 	private List<BooksLibrary> booksInLibrary;
 	private String libraryName;
@@ -70,6 +73,10 @@ public class BookController {
 
 		model.addObject("library", readingForAllBooks.get(0).getLibrary().getLibrary_name());
 		model.addObject("books", readingForAllBooks);
+		model.addObject("bookRatingRepository", bookRatingRepository);
+		//-----
+//		System.out.println(bookRatingRepository.findRateByBookID(1));
+		//---
 
 		return model;
 
