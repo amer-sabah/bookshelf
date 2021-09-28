@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -21,6 +22,10 @@
 
 <body>
 
+<jsp:include page="header.jsp"></jsp:include>
+	<br>
+	<br>
+
   <c:forEach items="${booklist}" var="bookInLibrary">
      <div class="card" style="width: 18rem;">
       <div class="card-body">
@@ -30,7 +35,7 @@
      </div>
   </c:forEach>
  
- 
+ <ft:footer/>
 </body>
 
 

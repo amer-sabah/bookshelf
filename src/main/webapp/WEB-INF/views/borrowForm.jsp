@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -41,6 +42,9 @@
 
 </head>
 <body>
+ <jsp:include page="header.jsp"></jsp:include>
+	<br>
+	<br>
   
      <div style="width:80% ; margin: auto; margin-right: auto; margin-top:5% ;">
       <h3>Please Enter Your Information</h3>
@@ -67,5 +71,10 @@
    </div>
   
      </div>
+<br>
+<br>
+
+<ft:footer/>
 </body>
+
 </html>

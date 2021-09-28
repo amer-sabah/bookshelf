@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -21,6 +22,12 @@
 </script>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
+	<br>
+	<br>
+	
+
+
      <div style="width:80% ; margin: auto; margin-right: auto; margin-top:5% ; background-color: ">
       <h2>Borrowing Requests</h2>
       <table class="table table-striped"  style="margin-top:20px" >
@@ -51,7 +58,7 @@
      
      </div>
    
-  
+  <ft:footer/>
    
 </body>
 </html>

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -35,6 +36,10 @@
 </head>
 
 <body>
+
+<jsp:include page="header.jsp"></jsp:include>
+	<br>
+	<br>
 
   <form class="mb-3" style="width:70%;margin-left: auto; margin-right: auto; margin-top: 50px">
     	<input id="search" type="text" class="form-control" placeholder="Search for book" 
@@ -70,7 +75,11 @@
       <button type="submit" class="btn btn-primary" onclick="submit()">submit</button>
     </div>
   </c:if>
+<br>
+<br>
 
+<ft:footer/>
+	
 </body>
 
 
