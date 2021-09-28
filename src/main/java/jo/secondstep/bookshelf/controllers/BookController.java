@@ -78,6 +78,7 @@ public class BookController {
 
 		model.addObject("library", readingForAllBooks.get(0).getLibrary().getLibrary_name());
 		model.addObject("books", readingForAllBooks);
+//		System.out.println(readingForAllBooks.get(0).getLibrary().getLibrary_name());
 		model.addObject("bookRatingRepository", bookRatingRepository);
 		// -----
 //		System.out.println(bookRatingRepository.findRateByBookID(1));

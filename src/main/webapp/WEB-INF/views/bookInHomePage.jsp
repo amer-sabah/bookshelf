@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=windows-1256"
 	pageEncoding="windows-1256"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <meta charset="windows-1256">
@@ -135,6 +136,8 @@ function selectLibrary(){
 
 		</div>
 	</div>
-
+	<br>
+	<br>
+<ft:footer/>
 </body>
 </html>

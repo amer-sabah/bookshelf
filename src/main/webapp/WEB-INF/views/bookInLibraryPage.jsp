@@ -2,6 +2,7 @@
 	pageEncoding="windows-1256"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <meta charset="windows-1256">
@@ -100,5 +101,7 @@ function buy(person_id,book_id){
 
 		</div>
 	</div>
+	<br><br>
+	<ft:footer/>
 </body>
 </html>

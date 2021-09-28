@@ -2,6 +2,7 @@
 	pageEncoding="windows-1256"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="ft" uri="tags"%>
 
 
 <html>
@@ -83,8 +84,8 @@
 	</div>
 
 
+<br><br>
 
-
-
+<ft:footer/>
 </body>
 </html>

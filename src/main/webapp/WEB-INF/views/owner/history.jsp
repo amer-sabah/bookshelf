@@ -2,6 +2,7 @@
 	pageEncoding="windows-1256"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 <meta charset="windows-1256">
@@ -254,6 +255,6 @@
 		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
 		crossorigin="anonymous"></script>
 
-
+<jsp:include page="/WEB-INF/tags/footerTag.jsp"></jsp:include>
 </body>
 </html>

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
+<%@ taglib prefix="ft" uri="tags"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 
 <table class="table table-hover" >
 	<thead>
@@ -39,7 +41,7 @@
       <td>${book.getBook().getLibrary().getLibrary_name() }</td>
       <td>${book.getNumber_of_borrow_days() }</td>
       <td>${book.getCustomer().getName() }</td>
-      <td><button class="btn btn-outline-success" value="${book.getId() }" name="returnedBook" onclick="returnBook(this)" > return </button></td>
+      <td><button class="btn btn-outline-primary" value="${book.getId() }" name="returnedBook" onclick="returnBook(this)" > return </button></td>
     </tr>
 		 
 			
@@ -48,7 +50,7 @@
 		
 	</c:forEach>
 	</table>
-	
+<!----> 	<ft:footer/> 
 	<script type="text/javascript">
 		
 		function returnBook(returnButton) {

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="ft" uri="tags"%>
 <html>
 <head>
 <title>Bookshelf-Home Page</title>
@@ -72,8 +73,9 @@
 		</div>
 	</div>
 
+<br>
+<br>
 
-
-
+<ft:footer/>
 </body>
 </html>

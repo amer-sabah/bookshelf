@@ -21,19 +21,6 @@
 <script src="../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 <style>
-body {
-	font-family: 'Poppins', sans-serif;
-	background: rgb(107, 186, 222);
-	background: -moz-linear-gradient(90deg, rgba(107, 186, 222, 1) 0%,
-		rgba(232, 156, 205, 1) 100%);
-	background: -webkit-linear-gradient(90deg, rgba(107, 186, 222, 1) 0%,
-		rgba(232, 156, 205, 1) 100%);
-	background: linear-gradient(90deg, rgba(107, 186, 222, 1) 0%,
-		rgba(232, 156, 205, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6bbade",
-		endColorstr="#e89ccd", GradientType=1);
-}
-
 .but {
 	min-width: 9ch;
 	min-height: 40px;
@@ -61,10 +48,7 @@ tr, .book {
 	margin-bottom: 10px;
 	background-color: #fff;
 	border: 1px solid rgba(0, 0, 0, .125);
-	border-top-left-radius: .25rem;
-	border-top-right-radius: 5.25rem;
-	border-bottom-left-radius: 5.25rem;
-	border-bottom-right-radius: .25rem;
+
 }
 
 tr:nth-child(even), .book {
@@ -74,26 +58,11 @@ tr:nth-child(even), .book {
 
 </head>
 <body>
+
+	<jsp:include page="header.jsp"></jsp:include>
+	<br />
 	<h2 style="text-align: center;">Buy Book</h2>
 	<br>
-
-
-	<table id="displaytable">
-
-		<thead>
-
-		</thead>
-		<tbody>
-			<tr>
-				<td style="text-align: center;"><b>Library Name :</b>&nbsp;&nbsp;${buy.library.getLibrary_name()}&nbsp;&nbsp;</td>
-			<tr>
-				<td style="text-align: center;"><b>Library Location :</b>&nbsp;&nbsp;${buy.library.getLocation()}&nbsp;&nbsp;</td>
-			</tr>
-			<tr>
-			</tr>
-
-		</tbody>
-	</table>
 
 
 	<div class="book">
@@ -118,6 +87,22 @@ tr:nth-child(even), .book {
 		<br />
 
 	</div>
+
+
+	<table id="displaytable">
+
+		<thead>
+
+		</thead>
+		<tbody>
+			<tr>
+				<td style="text-align: center;"><b>Library </b>&nbsp;&nbsp;${buy.library.getLibrary_name()}
+					&nbsp;&nbsp;/&nbsp;&nbsp;${buy.library.getLocation()}&nbsp;&nbsp;</td>
+			</tr>
+
+
+		</tbody>
+	</table>
 	<form action="Add">
 		<input type="hidden" id="person_id" name="person_id"
 			value='${param.person_id}'> <input type="hidden" id="book_id"
