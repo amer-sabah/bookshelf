@@ -2,10 +2,10 @@ package jo.secondstep.bookshelf.controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import jo.secondstep.bookshelf.entities.BooksLibrary;
 import jo.secondstep.bookshelf.entities.BuyOperations;
 import jo.secondstep.bookshelf.entities.Person;
-import jo.secondstep.bookshelf.repositories.PersonRepository;
+import jo.secondstep.bookshelf.repositories.BooksRepository;
 import jo.secondstep.bookshelf.service.BooksLibraryService;
 import jo.secondstep.bookshelf.service.BuyOperationsService;
 import jo.secondstep.bookshelf.service.PersonService;
@@ -29,10 +29,16 @@ public class BuyOperationsController {
 	private BooksLibraryService booksLibraryService;
 	@Autowired
 	PersonService personService;
+	
+	@Autowired
+	private BooksRepository booksRepository;
+	
 
 	
 	@RequestMapping("/")
-	public String display() {
+	public String display(ModelMap map) {
+		map.addAttribute("popularBooks",  booksRepository.findAll().stream().filter(b-> b.getId() %5 ==1).limit(4).toArray());
+		map.addAttribute("newBooks",  booksRepository.findAll().stream().filter(b-> b.getId() %3 ==0).limit(4).toArray());
 		return "index";
 	}
 

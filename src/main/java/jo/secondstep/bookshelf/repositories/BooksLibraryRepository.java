@@ -26,4 +26,7 @@ public interface BooksLibraryRepository extends CrudRepository<BooksLibrary, Int
 	@Query(value = "select * from books b join categories c on b.category_id=c.category_id join books_in_library bl on b.book_id=bl.book_id \r\n"
 			+ "	where category_name=?1 and bl.status=?2", nativeQuery = true)
 	public List<BooksLibrary> findBookbyStatusAndCategory(String category_name, String status);
+	
+	@Query(value = "select * from books_in_library where book_id = ?1",nativeQuery = true)
+	public List<BooksLibrary> findByBookId(Integer id);
 }

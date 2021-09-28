@@ -31,13 +31,6 @@
 				+ ${library_id}	+"&name=" + text;
 	}
 	
-	function borrow(id){
-		window.location.href = "http://localhost:8080/Bookshelf/borrowoperations?id="+id;
-	}
-	
-	function buy(person_id,book_id){
-		window.location.href = "http://localhost:8080/Bookshelf/buy?person_id="+person_id+"&&book_id="+book_id;
-	}
 </script>
 
 
@@ -45,9 +38,6 @@
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
-
-
-	<c:set var="colors" scope="application">"#BC3067","#77E630","#02A2EE","#e54b30","#ff1985" </c:set>
 
 	<div class="container">
 		<div class="row ">
@@ -69,7 +59,7 @@
 		</div>
 	</div>
 	<c:if test="${empty(books)}">
-		<h3 style="margin: 32px">There is no available books.</h3>
+		<h3 style="margin: 32px">Not found any books.</h3>
 	</c:if>
 
 	<div class="container">
@@ -82,7 +72,7 @@
 							<h5 class="card-title">${book.getName() }</h5>
 							<div class="card-subtitle text-muted d-flex bd-highlight " >
 								<div class="p-2 flex-grow-1 bd-highlight">${book.getCategory().getName() }</div>
-								<div class="p-2 bd-highlight"> <a href="#" class="btn btn-outline-success ">Open Book page</a></div>
+								<div class="p-2 bd-highlight"> <a href="http://localhost:8080/Bookshelf/book/?id=${book.getId() }&library=${library_id}" class="btn btn-outline-success ">Open Book page</a></div>
 							</div>
 						</div>
 					</div>

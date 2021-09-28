@@ -28,4 +28,7 @@ public interface BookRatingRepository extends  JpaRepository<BooksRatingEntity, 
 	@Query("select rate from book_ratings where book_id = :bookID")
 	Integer findRateByBookID(@Param("bookID") int bookID);
 	
+	@Query("select rate from book_ratings where book_id = :bookID")
+	List <Integer> findRateByBook(@Param("bookID") int bookID);
+	
 }
