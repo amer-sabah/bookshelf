@@ -29,7 +29,8 @@ public class BuyOperationsController {
 	private BooksLibraryService booksLibraryService;
 	@Autowired
 	PersonService personService;
-	
+	@Autowired
+	private BookRatingRepository bookRatingRepository;
 	@Autowired
 	private BooksRepository booksRepository;
 	
@@ -48,6 +49,10 @@ public class BuyOperationsController {
 		BooksLibrary booksLibrary = booksLibraryService.findBook(person_id, book_id);
 
 		model.addObject("buy", booksLibrary);
+
+    
+		model.addObject("bookRatingRepository", bookRatingRepository);
+
 		model.setViewName("buy");
 
 		return model;
