@@ -75,7 +75,11 @@ tr, .book {
 		<br>
 
 
-	
+		<h6 style="text-align: center;">
+			<b>Library </b>&nbsp;&nbsp;${buy.library.getLibrary_name()}
+			&nbsp;&nbsp;/&nbsp;&nbsp;${buy.library.getLocation()}&nbsp;&nbsp;
+		</h6>
+	<br>
 
 
 		<div class="book">
@@ -121,9 +125,11 @@ tr, .book {
 								class="fa fa-star checked"></span>
 						</c:when>
 						<c:otherwise>
+						
 							<span class="fa fa-star "></span><span
 								class="fa fa-star "></span><span class="fa fa-star "></span><span
 								class="fa fa-star "></span><span class="fa fa-star "></span>
+								
 						</c:otherwise>
 					</c:choose>
 
@@ -149,18 +155,14 @@ tr, .book {
 
 			<br /> <br />
 			<h5 style="text-align: center; font-weight: bold;">Price
-				${buy.book.getPrice()}</h5>
+				${buy.book.getPrice()} $</h5>
 
 			<br />
 
 		</div>
 
 
-		<h6 style="text-align: center;">
-			<b>Library </b>&nbsp;&nbsp;${buy.library.getLibrary_name()}
-			&nbsp;&nbsp;/&nbsp;&nbsp;${buy.library.getLocation()}&nbsp;&nbsp;
-		</h6>
-
+	
 
 		<br>
 		<br>
