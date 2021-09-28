@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="ft" uri="tags"%>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,6 @@
 	</form>
 	
 	</div>
-	
 	<script type="text/javascript">
 	
 	function submitForm(formObject) {
