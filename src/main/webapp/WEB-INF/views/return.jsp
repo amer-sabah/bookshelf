@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 
 <table class="table table-hover" >
 	<thead>
@@ -40,7 +41,7 @@
       <td>${book.getBook().getLibrary().getLibrary_name() }</td>
       <td>${book.getNumber_of_borrow_days() }</td>
       <td>${book.getCustomer().getName() }</td>
-      <td><button class="btn btn-outline-success" value="${book.getId() }" name="returnedBook" onclick="returnBook(this)" > return </button></td>
+      <td><button class="btn btn-outline-primary" value="${book.getId() }" name="returnedBook" onclick="returnBook(this)" > return </button></td>
     </tr>
 		 
 			

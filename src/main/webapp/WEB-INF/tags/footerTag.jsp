@@ -38,14 +38,26 @@
 		opacity: 0.9;
 }
 
+body {
+	min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.footerDiv{
+    margin-top: auto;
+    background-color: #d7d7d7;
+}
+
+
 
 
 	</style>
 </head>
 
 <body>
-<div align="center">
-        <footer>
+
+<div align="center" class="footerDiv" >
+        <footer >
             <div style="padding-bottom:30px;padding-top:30px;">
             	<a href="https://www.instagram.com" target="_blank" class="customIcon instaIcon"><i class="icon ion-social-instagram "></i></a>
             	<a href="https://www.snapchat.com" target="_blank" class="customIcon snapIcon"><i class="icon ion-social-snapchat "></i></a>
